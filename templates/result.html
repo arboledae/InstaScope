@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<title>Analizador de Seguidores de Instagram</title>
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<style>
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.glass-card {
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.2s;
+}
+
+.glass-card:hover {
+    border-color: rgba(255,255,255,0.15);
+}
+
+.neon-glow {
+    box-shadow:
+    0 0 25px rgba(168,85,247,0.15),
+    inset 0 0 10px rgba(168,85,247,0.05);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4d4354;
+}
+
+</style>
+
+</head>
+
+<body class="bg-[#050505] text-white min-h-screen">
+
+<!-- header -->
+<header class="fixed top-0 left-0 w-full h-20 border-b border-white/5 backdrop-blur-xl flex items-center justify-center z-50 bg-black/40">
+
+    <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-purple-400 text-6xl">
+                    person_search
+        </span>
+
+        <h1 class="text-5xl font-bold tracking-tight text-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+            INSTASCOPE
+
+        </h1>
+
+    </div>
+
+</header>
+
+<!-- content -->
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+
+    <!-- stats -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+        <!-- followers -->
+        <div class="glass-card rounded-3xl p-8 text-center neon-glow">
+
+            <span class="material-symbols-outlined text-purple-300 text-5xl mb-4">
+                group
+            </span>
+
+            <p class="uppercase tracking-widest text-zinc-500 text-sm">
+                Seguidores
+            </p>
+
+            <h2 class="text-5xl font-bold mt-3">
+                {{ followers }}
+            </h2>
+
+        </div>
+
+        <!-- following -->
+        <div class="glass-card rounded-3xl p-8 text-center neon-glow">
+
+            <span class="material-symbols-outlined text-violet-300 text-5xl mb-4">
+                person_add
+            </span>
+
+            <p class="uppercase tracking-widest text-zinc-500 text-sm">
+                Seguidos
+            </p>
+
+            <h2 class="text-5xl font-bold mt-3">
+                {{ following }}
+            </h2>
+
+        </div>
+
+        <!-- not following back -->
+        <div class="glass-card rounded-3xl p-8 text-center neon-glow border border-purple-500/20">
+
+            <span class="material-symbols-outlined text-purple-400 text-5xl mb-4"
+            style="font-variation-settings: 'FILL' 1;">
+                person_cancel
+            </span>
+
+            <p class="uppercase tracking-widest text-zinc-500 text-sm">
+                No te siguen de vuelta
+            </p>
+
+            <h2 class="text-5xl font-bold mt-3">
+                {{ no_te_siguen|length }}
+            </h2>
+
+        </div>
+
+    </section>
+
+    <!-- title -->
+    <div class="mb-8">
+
+        <h3 class="text-4xl font-bold">
+            Resultados del análisis
+        </h3>
+
+        <p class="text-zinc-500 mt-2 text-lg">
+            Cuentas que no te siguen de vuelta en Instagram.
+        </p>
+
+    </div>
+
+    <!-- user list -->
+    <div class="glass-card rounded-3xl overflow-hidden">
+
+        <!-- top bar -->
+        <div class="border-b border-white/5 px-8 py-6 flex items-center justify-between">
+
+            <p class="text-zinc-400">
+                {{ no_te_siguen|length }} cuentas encontradas
+            </p>
+
+            <a href="/"
+               class="bg-purple-500 hover:bg-purple-400 transition px-6 py-3 rounded-xl text-white font-semibold">
+
+                Nuevo análisis
+
+            </a>
+
+        </div>
+
+        <!-- scroll -->
+        <div class="max-h-[700px] overflow-y-auto">
+
+            <table class="w-full">
+
+                <tbody class="divide-y divide-white/5">
+
+                {% for user in no_te_siguen %}
+
+                <tr class="hover:bg-white/5 transition">
+
+                    <!-- username -->
+                    <td class="px-8 py-6">
+
+                        <div class="flex items-center gap-4">
+
+                            
+
+                            <div>
+
+                                <p class="text-lg font-medium">
+                                    @{{ user }}
+                                </p>
+
+                                <p class="text-sm text-zinc-500">
+                                    No te sigue de vuelta
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+            
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>
