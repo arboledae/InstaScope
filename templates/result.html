@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html class="dark" lang="en">
 
 <head>
@@ -7,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
@@ -66,19 +66,19 @@ body {
   font-style: normal;
 }
 
-
 </style>
 
 </head>
 
 <body class="bg-[#050505] text-white min-h-screen">
 
-<!-- header -->
-<header class="fixed top-0 left-0 w-full h-20 border-b border-white/5 backdrop-blur-xl flex items-center justify-center z-50 bg-black/40">
+<!-- HEADER (IGUAL AL INDEX) -->
+<header class="backdrop-blur-xl border-b border-white/5 flex justify-center items-center h-24 w-full">
 
     <div class="flex items-center gap-4">
+
         <span class="material-symbols-outlined text-purple-400 text-6xl">
-                    person_search
+            person_search
         </span>
 
         <h1 class="text-5xl text-purple-400 archivo-black-regular">
@@ -132,8 +132,8 @@ body {
         <!-- not following back -->
         <div class="glass-card rounded-3xl p-8 text-center neon-glow border border-purple-500/20">
 
-            <span class="material-symbols-outlined text-purple-400 text-5xl mb-4"
-            style="font-variation-settings: 'FILL' 1;">
+            <span class="material-symbols-outlined text-purple-400 text-5xl"
+                  style="font-variation-settings: 'FILL' 0;">
                 person_cancel
             </span>
 
@@ -165,7 +165,6 @@ body {
     <!-- user list -->
     <div class="glass-card rounded-3xl overflow-hidden">
 
-        <!-- top bar -->
         <div class="border-b border-white/5 px-8 py-6 flex items-center justify-between">
 
             <p class="text-zinc-400">
@@ -174,14 +173,11 @@ body {
 
             <a href="/"
                class="bg-purple-500 hover:bg-purple-400 transition px-6 py-3 rounded-xl text-white font-semibold">
-
                 Nuevo análisis
-
             </a>
 
         </div>
 
-        <!-- scroll -->
         <div class="max-h-[700px] overflow-y-auto">
 
             <table class="w-full">
@@ -192,15 +188,11 @@ body {
 
                 <tr class="hover:bg-white/5 transition">
 
-                    <!-- username -->
                     <td class="px-8 py-6">
 
                         <div class="flex items-center gap-4">
 
-                            
-
                             <div>
-
                                 <p class="text-lg font-medium">
                                     @{{ user }}
                                 </p>
@@ -208,14 +200,9 @@ body {
                                 <p class="text-sm text-zinc-500">
                                     No te sigue de vuelta
                                 </p>
-
                             </div>
 
                         </div>
-
-                    </td>
-
-            
 
                     </td>
 
@@ -234,5 +221,4 @@ body {
 </main>
 
 </body>
-
 </html>
