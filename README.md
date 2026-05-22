@@ -4,6 +4,11 @@ Analizador de seguidores de Instagram que permite identificar quién no te sigue
 
 ---
 
+## Demo
+
+[🔗 Probar INSTASCOPE](https://instascope-jlsy.onrender.com)
+
+---
 ## ¿Qué hace este proyecto?
 
 INSTASCOPE analiza tu archivo de datos exportado desde Instagram (Meta) y te ayuda a:
@@ -51,9 +56,4 @@ Carga el archivo en INSTASCOPE y obtén los resultados automáticamente.
 - Se recomienda usar formato JSON para mejor compatibilidad
 - Funciona mejor con datos completos de seguidores y seguidos
 
----
-
-## Demo
-
-[🔗 Probar INSTASCOPE](https://instascope-jlsy.onrender.com)
 ---
